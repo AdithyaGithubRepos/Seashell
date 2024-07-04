@@ -6,6 +6,6 @@ A simple language which is a bridge between interpreter and compiler. it can com
 2. type :
 mkdir build (make build directory)
 
-cmake -S . -B build/
-cmake --build build/
+## cmake -S . -B build/
+## cmake --build build/
 --------------------------------------------------
