@@ -3,19 +3,14 @@
 #include <string>
 
 std::string filename;
-std::string operation;
-std::string function;
+std::string toprint;
+std::string func;
+std::string opp;
 
-
-void compile(const std::string& filename)
+void write(const std::string& filename)
 {
-    std::ofstream outfile("out.py");
-    outfile << "print(\"Compiled in shllpy\")";
-
-
-   
-
-
+    std::ofstream outfile(filename, std::ios_base::app);
+    outfile << "print(\"" + toprint + "\")" << std::endl;
     outfile.close();
 }
 
@@ -26,10 +21,17 @@ void py(const std::string& filename)
     std::ifstream file(filename);
     while (getline(file, line))
     {
-       if (line=="compile")
-       {
-        compile(filename);
-       }
+        if (line=="speak:")
+        {
+           while (getline(file, line))
+           {
+             toprint = line;
+             write("out.py");
+             break;
+           }
+           
+        }
+        
     }
 }
 
