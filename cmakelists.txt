@@ -9,3 +9,5 @@ add_executable(shllpy src/mainpy.cpp)
 add_executable(shllc src/mainc.cpp)
 
 add_executable(shllu src/mainlu.cpp)
+
+add_executable(shllj src/mainj.cpp)

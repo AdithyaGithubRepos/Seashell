@@ -1,0 +1,5 @@
+sysrun:
+echo hello world!
+
+speak:
+hello world again!
