@@ -5,23 +5,20 @@
 #include "cstdlib"
 #include "regex"
 #include "cstdio"
+#include "stdexcept"
 
 std::string filename;
 std::string toprint;
 std::string function;
 std::string compileChoice;
 std::string opp;
+double towait; // wait func
 std::string outfilename = "out.c";
 std::string tosys; // System command
 std::ofstream outfile(outfilename, std::ios_base::app);
 
 void writeStd() // write headers
 {
-    if (!function.empty())
-    {
-        outfile << "void " + function + "(){\n\n\n";
-        outfile << "}";
-    }
 
     outfile << "#include <stdio.h>\n";
     outfile << "#include <stdlib.h>\n";
@@ -40,8 +37,13 @@ void write()
     {
         outfile << "system(\"" + tosys + "\");" << std::endl;
     }
+    if(towait > 0)
+    {
+        outfile << "sleep(" << towait << ");" << std::endl;
+    }
     toprint.clear();
     tosys.clear();
+    towait = 0;
 }
 
 void finalize()
@@ -81,6 +83,23 @@ void c(const std::string &filename)
                 break;
             }
         }
+        if (line == "wait:")
+        {
+            try
+            {
+                while (getline(file, line))
+                {
+                    towait = std::stoi(line);
+                    write();
+                    break;
+                }
+            }
+            catch (std::invalid_argument &e)
+            {
+                std::cerr << "Invalid int at function wait:\n compilation terminated" << std::endl;
+                exit(EXIT_FAILURE);
+            }
+        }
     }
 }
 
@@ -97,7 +116,7 @@ int main(int argc, char *argv[])
     c(filename); // initialize and finalize
     finalize();
 
-    std::cout << "Compile for which operating system? W for windows, L for linux and O for an object file." << std::endl;
+    std::cout << "Compile for which operating system? W for windows, L for linux and O for an object file.\n If you don't want to compile, Type K." << std::endl;
     std::cin >> compileChoice;
     if (compileChoice == "W")
     {
@@ -110,6 +129,10 @@ int main(int argc, char *argv[])
     if (compileChoice == "O")
     {
         system("gcc out.c -o shll.o");
+    }
+    if (compileChoice == "K")
+    {
+        exit(EXIT_SUCCESS);
     }
 
     return 0;
