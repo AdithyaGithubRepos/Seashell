@@ -8,4 +8,7 @@ mkdir build (make build directory)
 
 ## cmake -S . -B build/
 ## cmake --build build/
+
+side note:  Don't worry beginners! It's not that complicated as it seems. Just copy paste the commands above IN THE PROJECT DIRECTORY and you're done!
+            If you're still scared, just wait for an official release for the binaries.
 --------------------------------------------------
