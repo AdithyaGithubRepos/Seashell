@@ -11,4 +11,7 @@ mkdir build (make build directory)
 
 side note:  Don't worry beginners! It's not that complicated as it seems. Just copy paste the commands above IN THE PROJECT DIRECTORY and you're done!
             If you're still scared, just wait for an official release for the binaries.
+            Or if you still somehow cant figure out how to do it, just go to the helpme
+            folder and run any executable depending on your OS. For mac, link the .o 
+            file to an executable or something idk
 --------------------------------------------------
