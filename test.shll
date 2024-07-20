@@ -1,8 +1,6 @@
-speak:
-work pleaseee
-
-wait:
-3.14
-
-speak:
-PLEASEEE WORKkk
+speak[3] {
+    hi!
+    hi!!!
+    hi!!!!!!!!!!
+    noooooo
+}

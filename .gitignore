@@ -1,3 +1,5 @@
 .vscode/
 build/
 rmo.exe
+out/
+.vs/

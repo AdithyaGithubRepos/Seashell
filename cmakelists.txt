@@ -4,10 +4,5 @@ project(seashell)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(shllpy src/mainpy.cpp)
 
-add_executable(shllc src/mainc.cpp)
-
-add_executable(shllu src/mainlu.cpp)
-
-add_executable(shllj src/mainj.cpp)
+add_executable(shll src/seashell.cpp)
